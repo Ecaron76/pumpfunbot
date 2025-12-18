@@ -56,13 +56,6 @@ export function listenPumpCreates(connection: Connection) {
 
           if (!bondingCurve) return
 
-          console.log(
-            "🆕 PUMP CREATE DETECTED",
-            mint,
-            "bondingCurve=",
-            bondingCurve.toBase58()
-          )
-
           onNewPumpMint(mint)
         }, 800)
       } catch (e) {
