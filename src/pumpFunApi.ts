@@ -21,7 +21,7 @@ export async function fetchPumpFunPrice(
 ): Promise<PumpFunPrice | null> {
   try {
     const res = await fetch(
-      `https://solana-gateway.moralis.io/token/mainnet/exchange/pumpfun/bonding?limit=10`,
+      `${MORALIS_ENDPOINT}/token/mainnet/${mint}/price`,
       {
         method: "GET",
         headers: {
@@ -37,7 +37,7 @@ export async function fetchPumpFunPrice(
     }
 
     const json: any = await res.json()
-    console.log(json)
+
     if (!json?.usdPrice || !json?.nativePrice?.value) {
       return null
     }
